@@ -1,0 +1,24 @@
+<div class="pokemon-grid">
+    @for(item of pokemonesCompleto; track item.id){
+    <mat-card class="example-card">
+        <mat-card-header class="card-header">
+            <div mat-card-avatar><img [src]="item.sprites.front_default"></div>
+            <mat-card-title><strong>{{item.name}}</strong></mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+
+
+        <mat-card-content class="card-content">
+            <p><strong>Especie:</strong> {{item.species.name | titlecase}}</p>
+            <p><strong>Exp. Base:</strong> {{item.base_experience}}</p>
+            <p><strong>Nº Pokédex:</strong> {{item.order}}</p>
+            <p><strong>Habilidad:</strong> {{item.abilities[0].ability.name}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="button-container">
+                <button mat-button (click)="openDialog(item)">Más info</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+    }
+</div>
